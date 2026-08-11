@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple (Nigeria)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    /* Mobile */
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: block; /* Show the button on mobile */
+  }
+
+  .nav-links {
+    display: none; /* Hide the links by default on mobile */
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 30%;
+    background-color: #757575;
+    padding: 0.5rem;
+  }
+
+  /* This class will be toggled by JavaScript */
+  .nav-links.active {
+    display: block; /* Show the links when active */
+    height: 100px
+  }
+
+
+  .hero-section {
+    width: 100%;
+    
+  }
+  
+}
+
+/* Optional: Simple CSS hamburger icon */
+.hamburger {
+  display: block;
+  position: relative;
+  background: gray;
+  width: 20px;
+  height: 2px;
+  cursor: pointer;
+  left: 0;
+}
+.hamburger::before, .hamburger::after {
+  content: '';
+  position: absolute;
+  background: gray;
+  width: 20px;
+  height: 2px;
+  left: 0;
+}
+.hamburger::before { top: -7px; }
+.hamburger::after { top: 7px; }
+
+
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  
+}
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="nav-container">
+        <img class="logo-img" src="images/images apple-logo.png" alt="">
+
+        <button class="nav-toggle" id="navToggle" aria-label="toggle navigation">
+    <span class="hamburger"></span>
+  </button>
+        <ul id="navLinks" class="nav-links">
+            <li><a href="#">Mac</a></li>
+            <li><a href="#">iPad</a></li>
+            <li><a href="#">IPhone</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Where to Buy</a></li>
+        </ul>
+        <img class="search-icon" src="images/search-icon-png-10.png" alt="">
+        </div>
+        
+    </nav>
+    <!-- Ending of Navbar -->
+
+    <div class="hero-section">
+        <div class="home">
+            <div class="home-more">
+                <h1>iPhone</h1>
+                <p>Meet the latest iPhone lineUp.</p>
+               <center><button>Learn More</button></center> 
+            </div>
+              <img src="images/iphone-home.png" alt="">
+        </div>
+    </div>
+
+    <!-- end of hero section -->
+
+
+    <div class="macbook-neo-container">
+        <div class="control">
+            <div class="properties">
+                <h1>MacBook Neo</h1>
+                <p>Amazing Mac. Surprising Price.</p>
+               <center><button>Learn More</button></center> 
+            </div>
+              <img src="images/MacbookNeo-img.png" alt="">
+        </div>
+    </div>
+
+    <!-- End of the MacBookipad -->
+
+
+     <div class="ipadair-container">
+        <div class="ipad-control">
+            <div class="ipad-properties">
+                <h1>iPad Air</h1>
+                <p>Now supercharged by M4.</p>
+               <center><button>Learn More</button></center> 
+            </div>
+              <img src="images/IpadAir.png" alt="">
+        </div>
+    </div>
+
+     <!-- End of the ipadair-contailner   -->
+
+
+    <div class="dimension">    
+            <div class="dimension-left">
+                <h1>MacBook Pro</h1>
+                <p>Now with M5, M5 Pro, and M5 Max.</p>
+               <center><button>Learn More</button></center> 
+             <center> <img src="images/macbook-pro.png" alt=""></center>
+            </div>
+
+            <div class="dimension-right">
+                <h1>MacBook Air</h1>
+                <p>Now supercharged by M5.</p>
+               <center><button>Learn More</button></center> 
+             <img src="images/MacBookAir M5.png" alt="">
+            </div>
+        
+    </div>
+
+    <!-- end of dimension -->
+
+    <div class="dimension0">    
+            <div class="dimension0-left">
+                <h1>Studio Display</h1>
+                <p>A sight to be bold.</p>
+               <center><button>Learn More</button></center> 
+             <center> <img src="images/studio_display.png" alt=""></center>
+            </div>
+
+            <div class="dimension0-right">
+                <h1>Studio Display XDR</h1>
+                <p>Pixel Sherpener.</p>
+               <center><button>Learn More</button></center> 
+             <img src="images/Studio-Display.png" alt="">
+            </div>
+        
+    </div>
+
+    <!-- end of dimension0 -->
+
+    <footer id="contact">
+        <section class="footer-section">
+        <div class="footer-explore">
+            <h5>Explore</h5>
+            <ul>
+                <li><a href="#about">Mac</a></li>
+                <li><a href="#projects">iPad</a></li>
+                <li><a href="#contact">iPhone</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h5>Account</h5>
+            <ul>
+                <li><a href="#">Manage Your Apple Account</a></li>
+                <li><a href="#">iCloud.com</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-value">
+            <h5>Apple Value</h5>
+            <ul>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-about">
+            <h5>About Apple</h5>
+            <ul>
+                <li><a href="#">Newsroom</a></li>
+                <li><a href="#">Apple Leadership</a></li>
+                <li><a href="#">Career Opportunities</a></li>
+                <li><a href="#">Investors</a></li>
+                <li><a href="#">Ethics & Compliance</a></li>
+            </ul>
+        </div>
+        </section>
+
+        <div class="near-link">
+            <p><a href="#"><span>Find a retailer </span></a>near you.</p>
+        </div>
+
+        <div class="footer-line"> </div>
+        
+<!-- <marquee behavior="" direction="right">copy right 2026</marquee> -->
+
+        <div class="copy-right">
+            <p>Copyright &copy 2026 Apple inc. All right reserved.</p>
+
+            <h6>Term of use | Site Map</h6>
+            <h5>Nigeria</h5>
+        </div>
+
+    </footer>
+
+        
+
+</header>
+<script src="app.js"></script>
+    
+</body>
+</html>
