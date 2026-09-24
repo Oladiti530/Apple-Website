@@ -561,3 +561,92 @@ footer .copy-right h5:hover {
 
 
 
+
+/* ============================================================
+   Responsive layer — phone, tablet, desktop
+   ============================================================ */
+img { max-width: 100%; height: auto; }
+body { overflow-x: hidden; }
+
+/* Footer columns: a 10rem gap in a row overflowed every screen under ~1200px */
+.footer-section { flex-wrap: wrap; gap: clamp(1.5rem, 6vw, 10rem); }
+.footer-section > div { min-width: 150px; }
+/* The copyright row pushed its last item 47.5% to the right, off small screens */
+footer .copy-right { flex-wrap: wrap; align-items: center; }
+footer .copy-right h5 { position: static; left: auto; margin-left: auto; }
+@media (max-width: 767px) { footer .copy-right { gap: 10px; } footer .copy-right h5 { margin-left: 0; font-size: .85rem; } }
+
+/* Fluid replacements for the fixed pixel widths */
+.hero-section .home img,
+.macbook-neo-container img,
+.ipadair-container img,
+.dimension img,
+.dimension0 img { width: auto; max-width: 92%; height: auto; display: block; margin-inline: auto; }
+/* These carried fixed pixel heights/widths that beat max-width on small screens */
+.dimension .dimension-left img, .dimension .dimension-right img,
+.dimension0 .dimension0-left img, .dimension0 .dimension0-right img,
+.hero-section .home img, .macbook-neo-container img, .ipadair-container img { height: auto; }
+
+.dimension, .dimension0 { flex-wrap: wrap; }
+.dimension .dimension-left, .dimension .dimension-right,
+.dimension0 .dimension0-left, .dimension0 .dimension0-right { min-width: 0; }
+.dimension .dimension-left img, .dimension .dimension-right img,
+.dimension0 .dimension0-left img, .dimension0 .dimension0-right img {
+  max-width: 100%; height: auto;
+}
+
+@media (max-width: 1023px) {
+  .footer-section { gap: 2.5rem; bottom: 0; }
+  .nav-container { padding: 0 16px; gap: 12px; }
+  .logo-img { margin-right: 20px; }
+  nav ul { gap: 14px; }
+  .macbook-neo-container .control .properties h1,
+  .ipadair-container .ipad-control .ipad-properties h1 { font-size: 2.2rem; }
+  .dimension-left h1, .dimension-right h1,
+  .dimension0-left h1, .dimension0-right h1 { font-size: 2rem; }
+  .dimension .dimension-right img,
+  .dimension .dimension-left img { position: static; width: min(400px, 80%); height: auto; margin: 20px auto 0; display: block; }
+  .dimension .dimension-left, .dimension .dimension-right,
+  .dimension0 .dimension0-left, .dimension0 .dimension0-right { height: auto; padding-bottom: 36px; }
+}
+
+@media (max-width: 767px) {
+  /* Nav: logo, hamburger, search on one row; links drop into a panel */
+  .nav-container { justify-content: space-between; padding: 0 14px; }
+  .logo-img { margin-right: 0; }
+  .nav-links { width: min(230px, 70vw); left: auto; right: 10px; border-radius: 10px; }
+  .nav-links.active { height: auto; }
+  nav ul { flex-direction: column; gap: 10px; align-items: flex-start; }
+  .search-icon { margin-left: 0; }
+
+  /* Product sections stack */
+  .home .home-more h1,
+  .macbook-neo-container .control .properties h1,
+  .ipadair-container .ipad-control .ipad-properties h1 { font-size: 1.9rem; }
+  .home .home-more p,
+  .macbook-neo-container .properties p,
+  .ipadair-container .ipad-control .ipad-properties p { font-size: 1rem; padding: 0 16px; }
+
+  .dimension, .dimension0 { flex-direction: column; gap: 14px; }
+  .dimension .dimension-left, .dimension .dimension-right,
+  .dimension0 .dimension0-left, .dimension0 .dimension0-right { width: 100%; height: auto; padding-bottom: 32px; }
+  .dimension-left h1, .dimension-right h1,
+  .dimension0-left h1, .dimension0-right h1 { font-size: 1.7rem; margin-top: 36px; }
+  .dimension-left p, .dimension-right p,
+  .dimension0-left p, .dimension0-right p { font-size: 1rem; padding: 0 16px; }
+  .dimension .dimension-right img, .dimension .dimension-left img { width: min(340px, 86%); }
+
+  /* Footer columns stack */
+  footer { padding: 0 16px; }
+  .footer-section { flex-direction: column; gap: 22px; bottom: 0; }
+  .footer-section ul { padding-left: 0; }
+  footer .near-link p, footer .copy-right p, footer .copy-right h6 { font-size: .78rem; }
+}
+
+@media (max-width: 480px) {
+  .home .home-more h1,
+  .macbook-neo-container .control .properties h1,
+  .ipadair-container .ipad-control .ipad-properties h1 { font-size: 1.6rem; }
+  .dimension-left h1, .dimension-right h1,
+  .dimension0-left h1, .dimension0-right h1 { font-size: 1.45rem; }
+}
