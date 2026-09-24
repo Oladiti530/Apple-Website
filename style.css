@@ -94,16 +94,19 @@ li a {
     cursor: pointer;
     background-color: var(--border);
     width: 100%;
-    height: 620px;
+    min-height: 620px;
+    padding-bottom: 40px;
     /* position: relative; */
 }
 
 
 .hero-section .home {
+    /* Was position:absolute with top:15% while .hero-section had no
+       position, so it anchored to the page and collided with the next
+       section. It now sits in normal flow, centred in its own section. */
     justify-self: center;
-    position: absolute;
-    top: 15%;
-    
+    text-align: center;
+    padding-top: 90px;
 }
 
 .home .home-more {
@@ -146,7 +149,8 @@ li a {
     background-color: var(--border);
     cursor: pointer;
     width: 100%;
-    height: 600px;
+    min-height: 600px;
+    padding-bottom: 40px;
     margin-top: 15px
 }
 
@@ -194,7 +198,8 @@ li a {
 .ipadair-container {
     background-color: var(--border);
     width: 100%;
-    height: 600px;
+    min-height: 600px;
+    padding-bottom: 40px;
     cursor: pointer;
 }
 
@@ -274,7 +279,9 @@ li a {
 
 .dimension .dimension-left {
     width: 50%;
-    height: 600px;
+    min-height: 600px;
+    padding-bottom: 70px;
+    overflow: hidden;
     background-color: black;
     margin-top: px;
 
@@ -318,7 +325,9 @@ li a {
 .dimension .dimension-right {
     cursor: pointer;
     width: 50%;
-    height: 600px;
+    min-height: 600px;
+    padding-bottom: 70px;
+    overflow: hidden;
          background:
     radial-gradient(
      ellipse 1200px 700px at bottom,
@@ -376,7 +385,9 @@ li a {
 
 .dimension0 .dimension0-left {
     width: 50%;
-    height: 600px;
+    min-height: 600px;
+    padding-bottom: 70px;
+    overflow: hidden;
     background-color: var(--border);
 }
 
@@ -418,7 +429,9 @@ li a {
 .dimension0 .dimension0-right {
     cursor: pointer;
     width: 50%;
-    height: 600px;
+    min-height: 600px;
+    padding-bottom: 70px;
+    overflow: hidden;
     background: black;
 }
 
@@ -563,55 +576,52 @@ footer .copy-right h5:hover {
 
 
 /* ============================================================
-   Responsive layer — phone, tablet, desktop
+   Responsive layer — phone and tablet.
+   The desktop sizes above are left exactly as they were; every rule
+   here is inside a media query so nothing changes at full width.
    ============================================================ */
-img { max-width: 100%; height: auto; }
-body { overflow-x: hidden; }
+@media (max-width: 1200px) {
+  html, body { overflow-x: hidden; }
 
-/* Footer columns: a 10rem gap in a row overflowed every screen under ~1200px */
-.footer-section { flex-wrap: wrap; gap: clamp(1.5rem, 6vw, 10rem); }
-.footer-section > div { min-width: 150px; }
-/* The copyright row pushed its last item 47.5% to the right, off small screens */
-footer .copy-right { flex-wrap: wrap; align-items: center; }
-footer .copy-right h5 { position: static; left: auto; margin-left: auto; }
-@media (max-width: 767px) { footer .copy-right { gap: 10px; } footer .copy-right h5 { margin-left: 0; font-size: .85rem; } }
+  /* Product images keep their proportions but never exceed their column */
+  .hero-section .home img      { width: min(655px, 90vw); height: auto; }
+  .macbook-neo-container img   { width: min(600px, 90vw); height: auto; }
+  .ipadair-container img       { width: min(680px, 90vw); height: auto; }
+  .dimension .dimension-left img  { width: min(550px, 42vw); height: auto; top: 30px; }
+  .dimension .dimension-right img { width: min(400px, 34vw); height: auto; top: 30px; left: 0; margin-inline: auto; display: block; }
+  .dimension0 .dimension0-left img  { width: min(520px, 42vw); height: auto; top: 40px; }
+  .dimension0 .dimension0-right img { width: min(500px, 40vw); height: auto; left: 0; margin-inline: auto; display: block; }
 
-/* Fluid replacements for the fixed pixel widths */
-.hero-section .home img,
-.macbook-neo-container img,
-.ipadair-container img,
-.dimension img,
-.dimension0 img { width: auto; max-width: 92%; height: auto; display: block; margin-inline: auto; }
-/* These carried fixed pixel heights/widths that beat max-width on small screens */
-.dimension .dimension-left img, .dimension .dimension-right img,
-.dimension0 .dimension0-left img, .dimension0 .dimension0-right img,
-.hero-section .home img, .macbook-neo-container img, .ipadair-container img { height: auto; }
-
-.dimension, .dimension0 { flex-wrap: wrap; }
-.dimension .dimension-left, .dimension .dimension-right,
-.dimension0 .dimension0-left, .dimension0 .dimension0-right { min-width: 0; }
-.dimension .dimension-left img, .dimension .dimension-right img,
-.dimension0 .dimension0-left img, .dimension0 .dimension0-right img {
-  max-width: 100%; height: auto;
+  /* Footer: a 10rem column gap and a 47.5% offset overflowed every screen here */
+  .footer-section { flex-wrap: wrap; gap: 2.5rem; bottom: 0; }
+  .footer-section > div { min-width: 150px; }
+  footer .copy-right { flex-wrap: wrap; align-items: center; }
+  footer .copy-right h5 { position: static; left: auto; margin-left: auto; }
 }
 
 @media (max-width: 1023px) {
-  .footer-section { gap: 2.5rem; bottom: 0; }
   .nav-container { padding: 0 16px; gap: 12px; }
   .logo-img { margin-right: 20px; }
   nav ul { gap: 14px; }
+
   .macbook-neo-container .control .properties h1,
   .ipadair-container .ipad-control .ipad-properties h1 { font-size: 2.2rem; }
   .dimension-left h1, .dimension-right h1,
   .dimension0-left h1, .dimension0-right h1 { font-size: 2rem; }
-  .dimension .dimension-right img,
-  .dimension .dimension-left img { position: static; width: min(400px, 80%); height: auto; margin: 20px auto 0; display: block; }
+
+  /* Halves become full-width blocks with images centred under the copy */
+  .dimension, .dimension0 { flex-wrap: wrap; }
   .dimension .dimension-left, .dimension .dimension-right,
-  .dimension0 .dimension0-left, .dimension0 .dimension0-right { height: auto; padding-bottom: 36px; }
+  .dimension0 .dimension0-left, .dimension0 .dimension0-right { height: auto; padding-bottom: 40px; }
+  .dimension .dimension-left img, .dimension .dimension-right img,
+  .dimension0 .dimension0-left img, .dimension0 .dimension0-right img {
+    position: static; width: min(420px, 80%); height: auto;
+    display: block; margin: 24px auto 0;
+  }
 }
 
 @media (max-width: 767px) {
-  /* Nav: logo, hamburger, search on one row; links drop into a panel */
+  /* Nav: logo, hamburger and search stay on one row; links drop into a panel */
   .nav-container { justify-content: space-between; padding: 0 14px; }
   .logo-img { margin-right: 0; }
   .nav-links { width: min(230px, 70vw); left: auto; right: 10px; border-radius: 10px; }
@@ -619,13 +629,22 @@ footer .copy-right h5 { position: static; left: auto; margin-left: auto; }
   nav ul { flex-direction: column; gap: 10px; align-items: flex-start; }
   .search-icon { margin-left: 0; }
 
-  /* Product sections stack */
   .home .home-more h1,
   .macbook-neo-container .control .properties h1,
   .ipadair-container .ipad-control .ipad-properties h1 { font-size: 1.9rem; }
   .home .home-more p,
   .macbook-neo-container .properties p,
   .ipadair-container .ipad-control .ipad-properties p { font-size: 1rem; padding: 0 16px; }
+
+  /* The 600-620px section floors leave dead space once content stacks */
+  .hero-section, .macbook-neo-container, .ipadair-container { min-height: 0; padding-bottom: 30px; }
+  .dimension .dimension-left, .dimension .dimension-right,
+  .dimension0 .dimension0-left, .dimension0 .dimension0-right { min-height: 0; }
+  .hero-section .home { padding-top: 40px; }
+
+  .hero-section .home img    { width: 92vw; height: auto; }
+  .macbook-neo-container img { width: 92vw; height: auto; }
+  .ipadair-container img     { width: 92vw; height: auto; }
 
   .dimension, .dimension0 { flex-direction: column; gap: 14px; }
   .dimension .dimension-left, .dimension .dimension-right,
@@ -634,12 +653,14 @@ footer .copy-right h5 { position: static; left: auto; margin-left: auto; }
   .dimension0-left h1, .dimension0-right h1 { font-size: 1.7rem; margin-top: 36px; }
   .dimension-left p, .dimension-right p,
   .dimension0-left p, .dimension0-right p { font-size: 1rem; padding: 0 16px; }
-  .dimension .dimension-right img, .dimension .dimension-left img { width: min(340px, 86%); }
+  .dimension .dimension-left img, .dimension .dimension-right img,
+  .dimension0 .dimension0-left img, .dimension0 .dimension0-right img { width: min(340px, 86%); }
 
-  /* Footer columns stack */
   footer { padding: 0 16px; }
-  .footer-section { flex-direction: column; gap: 22px; bottom: 0; }
+  .footer-section { flex-direction: column; gap: 22px; }
   .footer-section ul { padding-left: 0; }
+  footer .copy-right { gap: 10px; }
+  footer .copy-right h5 { margin-left: 0; font-size: .85rem; }
   footer .near-link p, footer .copy-right p, footer .copy-right h6 { font-size: .78rem; }
 }
 
